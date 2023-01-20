@@ -16,8 +16,5 @@ class review extends Model
     {
         return $this->belongsTo('App\Models\signup','sign_id');
     }
-    // public function uploadpic()
-    // {
-    //     return $this->belongsTo(uploadpic::class);
-    // }
+
 }
