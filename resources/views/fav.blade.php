@@ -27,7 +27,7 @@
 
 
                             <div class="bg-white rounded-lg overflow-hidden mb-10">
-                                <img src="storage/{{ $d->image }}" alt="image" class="w-full" />
+                                <img src="storage/store/{{ $d->image }}" alt="image" class="w-full" />
                                 <div class="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
                                     <h3>
                                         views: <i class="fa-solid fa-eye"></i> {{ $d->views }}

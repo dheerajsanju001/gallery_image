@@ -34,14 +34,14 @@
                         <div
                             class="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
                             <a href="show{{ $d->id }}">
-                                <img src="storage/{{ $d->image }}" alt="art cover" loading="lazy" width="1000"
+                                <img src="storage/store/{{ $d->image }}" alt="art cover" loading="lazy" width="1000"
                                     height="667"
                                     class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl">
                                 <div class="sm:w-7/12 pl-0 p-5">
                                     <div class="space-y-2">
                                         <div class="space-y-4">
                                             <h4 class="text-2xl font-semibold text-cyan-900">UPLOADED
-                                                BY:{{ $d->username }}</h4>
+                                                BY:{{ $d->signup->username }}</h4>
                                             <p><a href="{{ 'pvtpost/' . $d->id }}">Delete post:<i
                                                         class="fa-solid fa-trash"></i></a></p>
                                         </div>

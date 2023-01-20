@@ -16,4 +16,5 @@ class uploadpic extends Model
     {
         return $this->belongsTo(signup::class);
     }
+
 }

@@ -70,6 +70,10 @@ Route::get('pvtpost{id}','App\Http\Controllers\dcontroller@pvtpics');
 //*******************FORM_BACK ROUTE USED FOR LOGOUT OF USER ***********************/
 Route::get('form_back','App\Http\Controllers\dcontroller@account');
 
+Route::post('comment_form{id}','App\Http\Controllers\dcontroller@comment_data');
+
+Route::get('show{sid}','App\Http\Controllers\dcontroller@show_comment');
+
 
 
 

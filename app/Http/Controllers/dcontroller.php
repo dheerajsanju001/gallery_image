@@ -49,7 +49,7 @@ class dcontroller extends Controller
     {
         $image = $request->image;
         $name = $image->getClientOriginalName();
-        $image->storeAs('public', $name);
+        $image->storeAs('public/store', $name);
         $image_save = new uploadpic;
         $image_save->username = $request->get('username');
         $image_save->selection = $request->get('selection');
@@ -71,12 +71,16 @@ class dcontroller extends Controller
 
     //*****************SHOWPIC FUNCTION IS USED FOR INCREASING VIEWS ON POST*************** */
     public function showpic($id)
-    {
+    {   
+        $comment = review::where('pic_id', $id)->orwhere('sign_id',$id)
+        ->with('one')->get();
+        // dd($comment);
+        // $sign=review::where('sign_id',$id)->get();
         $data = uploadpic::where('id', $id)->get();
         foreach ($data as $t)
-            $t->views++;
+        $t->views++;
         $t->save();
-        return view('show',compact('data'));
+        return view('show',compact('data','comment'));
     }
 
 
@@ -124,5 +128,17 @@ class dcontroller extends Controller
         $ob->delete();
         return back();
     }
+    // ******COMMENT_DATA FUNCTION IS USED FOR COMMENTING ON POST ****** */
+    public function comment_data(Request $request,$id='')
+    {
+        $add=new review;
+        $add->comment=$request->comment;
+        $add->sign_id=$request->get('sign_id');
+        $add->pic_id=$id;
+        $add->save();
+        return back();
+    }
+   
+    
 
 }
